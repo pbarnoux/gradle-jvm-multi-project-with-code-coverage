@@ -7,6 +7,12 @@ repositories {
     jcenter()
 }
 
+tasks.withType(Test) {
+    jacoco {
+        includes = ['org.gradle.sample.*']
+    }
+}
+
 // A resolvable configuration to collect source code
 def sourcesPath = configurations.create("sourcesPath") {
     visible = false

@@ -24,6 +24,12 @@ tasks.named("jacocoTestReport") {
     enabled = false
 }
 
+tasks.withType(Test) {
+    jacoco {
+        includes = ['org.gradle.sample.*']
+    }
+}
+
 // Share sources folder with other projects for aggregated JaCoCo reports
 configurations.create('transitiveSourcesElements') {
     visible = false
